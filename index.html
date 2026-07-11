@@ -11,55 +11,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS RESET & VARIABLES BASED ON USER HEX COLORS */
+        /* CSS VARIABLES WITH LIGHT MODE & GRADIENT OPTIMIZATION */
         :root {
             --forest-green: #35594a;
             --warm-sand: #f2e0c7;
             --sage-green: #8ea98c;
             --terracotta: #ae6824;
-            --white-pure: #ffffff;
+            
+            /* Light Base Backgrounds */
+            --light-bg-pure: #fafafa;
+            --light-bg-cream: #fbf8f3;
+            --text-dark: #2d4239;
+            --text-muted: #5a7065;
+            
+            /* Soft Gradients based on your colors */
+            --gradient-hero: linear-gradient(135deg, #ffffff 0%, #f4eee3 100%);
+            --gradient-phygital: linear-gradient(135deg, #f5f8f5 0%, #e2eae1 100%);
+            --gradient-placeholder: linear-gradient(135deg, #f2e0c7 0%, #d8c6ac 100%);
+            --gradient-placeholder-dark: linear-gradient(135deg, #35594a 0%, #223c31 100%);
         }
 
         * {
             margin: 0;
             padding: 0;
-            box-box-sizing: border-box;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--warm-sand);
-            color: var(--forest-green);
+            background-color: var(--light-bg-pure);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
-        h1, h2, h3, .brand-logo {
+        h1, h2, h3, h4 {
             font-family: 'Cinzel', serif;
             font-weight: 600;
+            color: var(--forest-green);
         }
 
-        /* NAVBAR */
+        /* NAVBAR WITH SVG LOGO */
         header {
-            background-color: var(--warm-sand);
-            padding: 1.5rem 10%;
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 10%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid var(--sage-green);
+            border-bottom: 1px solid rgba(142, 169, 140, 0.3);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        .brand-logo {
-            font-size: 1.8rem;
-            color: var(--forest-green);
-            letter-spacing: 2px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             text-decoration: none;
         }
 
-        nav a {
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
             color: var(--forest-green);
+            letter-spacing: 3px;
+        }
+
+        nav a {
+            color: var(--text-dark);
             text-decoration: none;
             margin-left: 2rem;
             font-size: 0.9rem;
@@ -71,14 +92,14 @@
             color: var(--terracotta);
         }
 
-        /* HERO SECTION */
+        /* 1. HERO SECTION (LIGHT GRADIENT BASE) */
         .hero {
-            background-color: var(--forest-green);
-            color: var(--warm-sand);
-            padding: 5rem 10%;
+            background: var(--gradient-hero);
+            padding: 6rem 10%;
             display: flex;
             align-items: center;
             min-height: 85vh;
+            border-bottom: 1px solid rgba(142, 169, 140, 0.2);
         }
 
         .hero-container {
@@ -94,35 +115,38 @@
         }
 
         .hero-text h1 {
-            font-size: 3rem;
-            line-height: 1.2;
+            font-size: 2.8rem;
+            line-height: 1.3;
             margin-bottom: 1.5rem;
             letter-spacing: 1px;
         }
 
         .hero-text p {
-            font-size: 1.1rem;
-            font-weight: 300;
+            font-size: 1.05rem;
+            color: var(--text-muted);
             margin-bottom: 2.5rem;
-            opacity: 0.9;
+            font-weight: 400;
         }
 
         .btn-primary {
             display: inline-block;
-            background-color: var(--terracotta);
+            background-color: var(--forest-green);
             color: var(--warm-sand);
             padding: 1rem 2.5rem;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 2px;
             border-radius: 4px;
-            transition: background 0.3s, transform 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(53, 89, 74, 0.15);
         }
 
         .btn-primary:hover {
-            background-color: #94531b;
+            background-color: var(--terracotta);
+            color: var(--light-bg-pure);
             transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(174, 104, 36, 0.25);
         }
 
         .hero-image {
@@ -131,46 +155,70 @@
             justify-content: center;
         }
 
-        /* Placeholder image with gradient and exact aspect ratio */
+        /* PLACEHOLDER MOCKUP BOX WITH SOFT GRADIENT */
         .image-placeholder {
             width: 100%;
             max-width: 450px;
             height: 450px;
-            background: linear-gradient(135deg, #446e5c, #264236);
-            border: 2px solid var(--sage-green);
-            border-radius: 8px;
+            background: var(--gradient-placeholder);
+            border: 1px solid rgba(53, 89, 74, 0.2);
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: var(--warm-sand);
+            color: var(--forest-green);
             text-align: center;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(53, 89, 74, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.05));
+            pointer-events: none;
         }
 
         .image-placeholder span {
             font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--terracotta);
         }
 
         .image-placeholder p {
-            font-size: 0.8rem;
-            opacity: 0.7;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            opacity: 0.8;
         }
 
-        /* PRODUCT DETAIL SECTION */
+        /* 2. PRODUCT DETAIL SECTION (LIGHT BASE) */
         .product-detail {
-            padding: 5rem 10%;
-            background-color: var(--warm-sand);
+            padding: 6rem 10%;
+            background-color: var(--light-bg-pure);
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             margin-bottom: 4rem;
             letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--terracotta);
+            margin: 1rem auto 0 auto;
         }
 
         .product-container {
@@ -190,29 +238,40 @@
         }
 
         .product-info h3 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 0.5rem;
+            color: var(--forest-green);
         }
 
         .product-meta {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--terracotta);
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-info > p {
+            color: var(--text-muted);
             margin-bottom: 1.5rem;
         }
 
         .olfactory-notes {
             margin: 2rem 0;
-            background-color: rgba(142, 169, 140, 0.2);
-            padding: 1.5rem;
-            border-left: 4px solid var(--sage-green);
-            border-radius: 0 4px 4px 0;
+            background-color: rgba(242, 224, 199, 0.4);
+            padding: 1.8rem;
+            border-left: 3px solid var(--terracotta);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 15px rgba(53, 89, 74, 0.02);
         }
 
         .olfactory-notes h4 {
             font-family: 'Cinzel', serif;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: var(--forest-green);
+            letter-spacing: 1px;
         }
 
         .olfactory-notes ul {
@@ -220,32 +279,36 @@
         }
 
         .olfactory-notes li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             font-size: 0.95rem;
+            color: var(--text-dark);
         }
 
         .olfactory-notes strong {
             color: var(--terracotta);
+            font-weight: 600;
         }
 
         .price {
-            font-size: 1.8rem;
-            font-weight: 600;
+            font-size: 2rem;
+            font-weight: 500;
             color: var(--forest-green);
             margin-bottom: 2rem;
+            font-family: 'Cinzel', serif;
         }
 
-        /* PHYGITAL EXPERIENCE SECTION */
+        /* 3. PHYGITAL EXPERIENCE SECTION (SOFT SAGE GRADIENT) */
         .phygital {
-            background-color: var(--sage-green);
-            color: var(--forest-green);
-            padding: 5rem 10%;
+            background: var(--gradient-phygital);
+            padding: 6rem 10%;
+            border-top: 1px solid rgba(142, 169, 140, 0.2);
+            border-bottom: 1px solid rgba(142, 169, 140, 0.2);
         }
 
-        /* FEATURES SECTION */
+        /* 4. SUSTAINABILITY LOOP SECTION (CREAM LIGHT BASE) */
         .features {
-            padding: 5rem 10%;
-            background-color: var(--warm-sand);
+            padding: 6rem 10%;
+            background-color: var(--light-bg-cream);
             text-align: center;
         }
 
@@ -253,27 +316,33 @@
             display: flex;
             justify-content: space-between;
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
         .feature-card {
             flex: 1;
-            background-color: var(--white-pure);
-            padding: 2.5rem 1.5rem;
-            border-radius: 6px;
-            box-shadow: 0 10px 20px rgba(53, 89, 74, 0.05);
-            border: 1px solid rgba(142, 169, 140, 0.3);
+            background-color: var(--light-bg-pure);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(53, 89, 74, 0.04);
+            border: 1px solid rgba(142, 169, 140, 0.25);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
 
         .feature-card h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--terracotta);
+            font-size: 1.15rem;
+            margin-bottom: 1.2rem;
+            color: var(--forest-green);
+            letter-spacing: 1px;
         }
 
         .feature-card p {
             font-size: 0.9rem;
-            opacity: 0.9;
+            color: var(--text-muted);
         }
 
         /* FOOTER */
@@ -281,28 +350,37 @@
             background-color: var(--forest-green);
             color: var(--warm-sand);
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             font-size: 0.85rem;
-            font-weight: 300;
-            border-top: 1px solid rgba(242, 224, 199, 0.2);
+            font-weight: 400;
+            letter-spacing: 1px;
         }
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 968px) {
-            header { padding: 1.5rem 5%; }
-            .hero, .product-detail, .phygital, .features { padding: 3rem 5%; }
+            header { padding: 1rem 5%; }
+            .hero, .product-detail, .phygital, .features { padding: 4rem 5%; }
             .hero-container, .product-container { flex-direction: column; gap: 3rem; }
             .features-grid { flex-direction: column; }
             .hero-text { text-align: center; }
-            .image-placeholder { max-width: 100%; height: 350px; }
+            .image-placeholder { max-width: 100%; height: 380px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR HEADER -->
+    <!-- NAVBAR HEADER WITH MOCKUP SVG LOGO -->
     <header>
-        <a href="#" class="brand-logo">AUVARA</a>
+        <a href="#" class="logo-container">
+            <!-- SVG LOGO MOCKUP: Cultural Lotus Scent Icon Template -->
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C12 2 9 7 9 10C9 11.6569 10.3431 13 12 13C13.6569 13 15 11.6569 15 10C15 7 12 2 12 2Z" fill="#ae6824"/>
+                <path d="M12 5C12 5 6 9.5 6 14C6 17.3137 8.68629 20 12 20C15.3137 20 18 17.3137 18 14C18 9.5 12 5Z" stroke="#35594a" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M12 13V20" stroke="#f2e0c7" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M8 15C8 15 9.5 16 12 16C14.5 16 16 15 16 15" stroke="#35594a" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-text">AUVARA</span>
+        </a>
         <nav>
             <a href="#shop">Shop All</a>
             <a href="#story">Our Story</a>
@@ -310,37 +388,37 @@
         </nav>
     </header>
 
-    <!-- 1. HERO SECTION -->
+    <!-- 1. HERO SECTION (LIGHT GRADIENT DESIGN) -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-text">
                 <h1>Documenting Indonesia Through Scent</h1>
-                <p>Sebuah portal sensorik yang membawa memori, sejarah, dan cerita budaya eksklusif Nusantara langkah demi langkah langsung ke atas kulit Anda.</p>
+                <p>Sebuah portal wewangian budaya yang membawa rekaman memori, narasi sejarah, dan warisan sosiokultural Nusantara langkah demi langkah langsung ke atas kulit Anda.</p>
                 <a href="#shop" class="btn-primary">DISCOVER BRAGA, 05:00 PM</a>
             </div>
             <div class="hero-image">
                 <div class="image-placeholder">
                     <span>[ MOCKUP PROTOTYPE 1 ]</span>
-                    <p>Signature Collection: Kaleng Bulat Aluminum Auvara Braga 05:00 PM di atas meja kayu minimalis dengan pencahayaan senja keemasan.</p>
+                    <p>Signature Collection: Kaleng Bulat Aluminum Auvara Varian "Braga, 05:00 PM" diletakkan estetik dengan latar belakang pencahayaan senja kota urban.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. PRODUCT DETAIL SECTION -->
+    <!-- 2. PRODUCT DETAIL SECTION (CLEAN LIGHT DESIGN) -->
     <section id="shop" class="product-detail">
         <h2 class="section-title">The Signature Collection</h2>
         <div class="product-container">
             <div class="product-gallery">
-                <div class="image-placeholder" style="background: linear-gradient(135deg, #d2be9f, #bda682); color: var(--forest-green); border-color: var(--forest-green);">
+                <div class="image-placeholder" style="background: var(--gradient-phygital);">
                     <span>[ MOCKUP PROTOTYPE 2 ]</span>
-                    <p style="color: var(--forest-green); opacity: 0.8;">Tampilan close-up wadah tin box terbuka memperlihatkan solid serum alami bersandingan dengan mini spatula applicator khusus.</p>
+                    <p>Visualisasi detail wadah logam bulat (tin box) terbuka yang memperlihatkan tekstur padat solid serum kosmetik alami bersanding dengan spatula applicator higienis.</p>
                 </div>
             </div>
             <div class="product-info">
                 <h3>BRAGA, 05:00 PM</h3>
                 <div class="product-meta">Solid Perfume | 15 gram | 100% Alcohol-Free</div>
-                <p>Terinspirasi dari atmosfer senja Jalan Braga, Kota Bandung. Menangkap perpaduan transisi udara dingin, arsitektur art deco keemasan, serta warisan historis kopi Priangan kolonial.</p>
+                <p>Mendokumentasikan atmosfer senja Jalan Braga lewat perpaduan transisi aroma kompleks; merepresentasikan udara dingin bangunan art deco klasik dan jejak sejarah kopi Priangan kolonial.</p>
                 
                 <div class="olfactory-notes">
                     <h4>Olfaktori Transisi Aroma:</h4>
@@ -352,43 +430,43 @@
                 </div>
                 
                 <div class="price">IDR 84.900</div>
-                <a href="#" class="btn-primary" style="background-color: var(--forest-green);">ADD TO CART</a>
+                <a href="#" class="btn-primary">ADD TO CART</a>
             </div>
         </div>
     </section>
 
-    <!-- 3. PHYGITAL EXPERIENCE SECTION -->
+    <!-- 3. PHYGITAL EXPERIENCE SECTION (SOFT SAGE GRADIENT) -->
     <section id="story" class="phygital">
         <div class="hero-container">
-            <div class="hero-text" style="color: var(--forest-green);">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Scan the Story,<br>Feel the Memory</h2>
-                <p style="margin-bottom: 2rem;">Setiap unit kemasan Auvara dilengkapi dengan Story Card fisik berproteksi HKI. Pindai QR Code bawaan untuk masuk ke platform multimedia digital interaktif kami—menyajikan visualisasi riset budaya serta video wawancara eksklusif dengan para penyuling minyak atsiri lokal Indonesia.</p>
-                <a href="#" class="btn-primary">EXPLORE DIGITAL EXPERIENCE</a>
+            <div class="hero-text">
+                <h2 style="font-size: 2.3rem; margin-bottom: 1.5rem; line-height: 1.3;">Scan the Story,<br>Feel the Memory</h2>
+                <p style="color: var(--text-muted); margin-bottom: 2.5rem;">Setiap produk dilengkapi dengan Story Card fisik berilustrasi ornamen Nusantara. Pindai QR Code bawaan untuk terhubung langsung ke platform multimedia digital interaktif berisi proses riset budaya serta video dokumenter eksklusif bersama petani atsiri lokal.</p>
+                <a href="#" class="btn-primary" style="background-color: var(--terracotta); color: white;">EXPLORE DIGITAL PORTAL</a>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder" style="background: linear-gradient(135deg, #264236, #162920);">
-                    <span>[ UI WEBSITE PLATFORM PROTOTYPE ]</span>
-                    <p>Antarmuka ponsel pintar (smartphone UI) menampilkan pemutaran media digital interaktif dokumenter mini sejarah kebudayaan Braga.</p>
+                <div class="image-placeholder" style="background: var(--gradient-placeholder-dark); color: var(--warm-sand);">
+                    <span style="color: var(--warm-sand);">[ UI WEBSITE PLATFORM PROTOTYPE ]</span>
+                    <p style="color: var(--warm-sand); opacity: 0.85;">Tampilan antarmuka layar smartphone (UI web interaktif) saat memutar konten multimedia edukasi sosiokultural daerah.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. SUSTAINABILITY LOOP SECTION -->
+    <!-- 4. SUSTAINABILITY LOOP SECTION (CREAM LIGHT BASE) -->
     <section id="ecosystem" class="features">
         <h2 class="section-title">Designed for Commuters, Built for the Planet</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <h4>0% Alcohol Base</h4>
-                <p>Formulasi berbasis beeswax dan shea butter murni yang aman bagi kulit sensitif tanpa risiko iritasi akibat penguapan alkohol kosmetik.</p>
+                <p>Memanfaatkan basis padat kombinasi lilin lebah (beeswax) lokal dan shea butter alami yang mengunci molekul aroma dan aman bagi kulit sensitif.</p>
             </div>
             <div class="feature-card">
                 <h4>Thermal Stability</h4>
-                <p>Dikalibrasi khusus menghadapi iklim tropis Indonesia dengan titik lebur aman 62-65°C. Dijamin tidak mencair saat disimpan di tas komuter.</p>
+                <p>Memiliki titik lebur tinggi pada kisaran 62-65°C, menjamin solid perfume tetap stabil, tidak mudah meleleh, dan 100% bebas risiko bocor di tas.</p>
             </div>
             <div class="feature-card">
-                <h4>Refill Pod Ecosystem</h4>
-                <p>Sistem cangkang pod yang dapat dilepas pasang dengan mudah, memangkas sisa kosmetik terbuang hingga 0% dan menghemat biaya beli ulang hingga 50%.</p>
+                <h4>Refill Pod System</h4>
+                <p>Dirancang khusus mendukung keberlanjutan kosmetik lewat sistem isi ulang (refillable pod) demi mengeliminasi timbulan limbah kemasan sekali pakai.</p>
             </div>
         </div>
     </section>
