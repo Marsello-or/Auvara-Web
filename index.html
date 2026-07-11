@@ -27,8 +27,6 @@
             /* Soft Gradients based on your colors */
             --gradient-hero: linear-gradient(135deg, #ffffff 0%, #f4eee3 100%);
             --gradient-phygital: linear-gradient(135deg, #f5f8f5 0%, #e2eae1 100%);
-            --gradient-placeholder: linear-gradient(135deg, #f2e0c7 0%, #d8c6ac 100%);
-            --gradient-placeholder-dark: linear-gradient(135deg, #35594a 0%, #223c31 100%);
         }
 
         * {
@@ -50,7 +48,7 @@
             color: var(--forest-green);
         }
 
-        /* NAVBAR WITH SVG LOGO */
+        /* NAVBAR WITH IMAGE LOGO */
         header {
             background-color: rgba(250, 250, 250, 0.95);
             backdrop-filter: blur(10px);
@@ -67,8 +65,14 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
         }
 
         .logo-text {
@@ -155,47 +159,23 @@
             justify-content: center;
         }
 
-        /* PLACEHOLDER MOCKUP BOX WITH SOFT GRADIENT */
-        .image-placeholder {
+        /* DYNAMIC MOCKUP CONTAINER WITH IMAGE RESPONSE */
+        .mockup-frame {
             width: 100%;
             max-width: 450px;
             height: 450px;
-            background: var(--gradient-placeholder);
-            border: 1px solid rgba(53, 89, 74, 0.2);
             border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: var(--forest-green);
-            text-align: center;
-            padding: 2.5rem;
-            box-shadow: 0 15px 35px rgba(53, 89, 74, 0.08);
-            position: relative;
             overflow: hidden;
+            box-shadow: 0 15px 35px rgba(53, 89, 74, 0.08);
+            border: 1px solid rgba(53, 89, 74, 0.1);
+            background-color: var(--light-bg-cream);
         }
 
-        .image-placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.05));
-            pointer-events: none;
-        }
-
-        .image-placeholder span {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            letter-spacing: 1px;
-            color: var(--terracotta);
-        }
-
-        .image-placeholder p {
-            font-size: 0.85rem;
-            color: var(--text-dark);
-            opacity: 0.8;
+        .mockup-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* 2. PRODUCT DETAIL SECTION (LIGHT BASE) */
@@ -363,22 +343,17 @@
             .hero-container, .product-container { flex-direction: column; gap: 3rem; }
             .features-grid { flex-direction: column; }
             .hero-text { text-align: center; }
-            .image-placeholder { max-width: 100%; height: 380px; }
+            .mockup-frame { max-width: 100%; height: 380px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR HEADER WITH MOCKUP SVG LOGO -->
+    <!-- NAVBAR HEADER WITH LOGO IMAGE -->
     <header>
         <a href="#" class="logo-container">
-            <!-- SVG LOGO MOCKUP: Cultural Lotus Scent Icon Template -->
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C12 2 9 7 9 10C9 11.6569 10.3431 13 12 13C13.6569 13 15 11.6569 15 10C15 7 12 2 12 2Z" fill="#ae6824"/>
-                <path d="M12 5C12 5 6 9.5 6 14C6 17.3137 8.68629 20 12 20C15.3137 20 18 17.3137 18 14C18 9.5 12 5Z" stroke="#35594a" stroke-width="1.5" stroke-linejoin="round"/>
-                <path d="M12 13V20" stroke="#f2e0c7" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M8 15C8 15 9.5 16 12 16C14.5 16 16 15 16 15" stroke="#35594a" stroke-width="1" stroke-linecap="round"/>
-            </svg>
+            <!-- Menampilkan file logo.png -->
+            <img src="logo.png" alt="Auvara Logo" class="logo-img">
             <span class="logo-text">AUVARA</span>
         </a>
         <nav>
@@ -388,7 +363,7 @@
         </nav>
     </header>
 
-    <!-- 1. HERO SECTION (LIGHT GRADIENT DESIGN) -->
+    <!-- 1. HERO SECTION -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-text">
@@ -397,22 +372,22 @@
                 <a href="#shop" class="btn-primary">DISCOVER BRAGA, 05:00 PM</a>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder">
-                    <span>[ MOCKUP PROTOTYPE 1 ]</span>
-                    <p>Signature Collection: Kaleng Bulat Aluminum Auvara Varian "Braga, 05:00 PM" diletakkan estetik dengan latar belakang pencahayaan senja kota urban.</p>
+                <div class="mockup-frame">
+                    <!-- Menampilkan file mockup1.png -->
+                    <img src="mockup1.png" alt="Auvara Signature Mockup 1">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. PRODUCT DETAIL SECTION (CLEAN LIGHT DESIGN) -->
+    <!-- 2. PRODUCT DETAIL SECTION -->
     <section id="shop" class="product-detail">
         <h2 class="section-title">The Signature Collection</h2>
         <div class="product-container">
             <div class="product-gallery">
-                <div class="image-placeholder" style="background: var(--gradient-phygital);">
-                    <span>[ MOCKUP PROTOTYPE 2 ]</span>
-                    <p>Visualisasi detail wadah logam bulat (tin box) terbuka yang memperlihatkan tekstur padat solid serum kosmetik alami bersanding dengan spatula applicator higienis.</p>
+                <div class="mockup-frame">
+                    <!-- Menampilkan file mockup2.png -->
+                    <img src="mockup2.png" alt="Auvara Product Details Mockup 2">
                 </div>
             </div>
             <div class="product-info">
@@ -435,7 +410,7 @@
         </div>
     </section>
 
-    <!-- 3. PHYGITAL EXPERIENCE SECTION (SOFT SAGE GRADIENT) -->
+    <!-- 3. PHYGITAL EXPERIENCE SECTION -->
     <section id="story" class="phygital">
         <div class="hero-container">
             <div class="hero-text">
@@ -444,15 +419,15 @@
                 <a href="#" class="btn-primary" style="background-color: var(--terracotta); color: white;">EXPLORE DIGITAL PORTAL</a>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder" style="background: var(--gradient-placeholder-dark); color: var(--warm-sand);">
-                    <span style="color: var(--warm-sand);">[ UI WEBSITE PLATFORM PROTOTYPE ]</span>
-                    <p style="color: var(--warm-sand); opacity: 0.85;">Tampilan antarmuka layar smartphone (UI web interaktif) saat memutar konten multimedia edukasi sosiokultural daerah.</p>
+                <div class="mockup-frame">
+                    <!-- Menampilkan file display-mockup.png -->
+                    <img src="display-mockup.png" alt="Auvara Interactive Platform Display Mockup">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. SUSTAINABILITY LOOP SECTION (CREAM LIGHT BASE) -->
+    <!-- 4. SUSTAINABILITY LOOP SECTION -->
     <section id="ecosystem" class="features">
         <h2 class="section-title">Designed for Commuters, Built for the Planet</h2>
         <div class="features-grid">
