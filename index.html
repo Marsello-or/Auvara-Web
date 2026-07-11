@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auvara - Natural-Based Cultural Fragrance House</title>
+    
+    <!-- Google Fonts: Kultural Khas (Cinzel) & Modern Readable (Montserrat) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS RESET & VARIABLES BASED ON USER HEX COLORS */
+        :root {
+            --forest-green: #35594a;
+            --warm-sand: #f2e0c7;
+            --sage-green: #8ea98c;
+            --terracotta: #ae6824;
+            --white-pure: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--warm-sand);
+            color: var(--forest-green);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .brand-logo {
+            font-family: 'Cinzel', serif;
+            font-weight: 600;
+        }
+
+        /* NAVBAR */
+        header {
+            background-color: var(--warm-sand);
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--sage-green);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand-logo {
+            font-size: 1.8rem;
+            color: var(--forest-green);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--forest-green);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--terracotta);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background-color: var(--forest-green);
+            color: var(--warm-sand);
+            padding: 5rem 10%;
+            display: flex;
+            align-items: center;
+            min-height: 85vh;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--terracotta);
+            color: var(--warm-sand);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #94531b;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Placeholder image with gradient and exact aspect ratio */
+        .image-placeholder {
+            width: 100%;
+            max-width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, #446e5c, #264236);
+            border: 2px solid var(--sage-green);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--warm-sand);
+            text-align: center;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .image-placeholder span {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-placeholder p {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* PRODUCT DETAIL SECTION */
+        .product-detail {
+            padding: 5rem 10%;
+            background-color: var(--warm-sand);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            letter-spacing: 2px;
+        }
+
+        .product-container {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .product-gallery {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-meta {
+            font-size: 0.9rem;
+            color: var(--terracotta);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .olfactory-notes {
+            margin: 2rem 0;
+            background-color: rgba(142, 169, 140, 0.2);
+            padding: 1.5rem;
+            border-left: 4px solid var(--sage-green);
+            border-radius: 0 4px 4px 0;
+        }
+
+        .olfactory-notes h4 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .olfactory-notes ul {
+            list-style: none;
+        }
+
+        .olfactory-notes li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .olfactory-notes strong {
+            color: var(--terracotta);
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: 2rem;
+        }
+
+        /* PHYGITAL EXPERIENCE SECTION */
+        .phygital {
+            background-color: var(--sage-green);
+            color: var(--forest-green);
+            padding: 5rem 10%;
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 5rem 10%;
+            background-color: var(--warm-sand);
+            text-align: center;
+        }
+
+        .features-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            flex: 1;
+            background-color: var(--white-pure);
+            padding: 2.5rem 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 10px 20px rgba(53, 89, 74, 0.05);
+            border: 1px solid rgba(142, 169, 140, 0.3);
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--terracotta);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--forest-green);
+            color: var(--warm-sand);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            font-weight: 300;
+            border-top: 1px solid rgba(242, 224, 199, 0.2);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 968px) {
+            header { padding: 1.5rem 5%; }
+            .hero, .product-detail, .phygital, .features { padding: 3rem 5%; }
+            .hero-container, .product-container { flex-direction: column; gap: 3rem; }
+            .features-grid { flex-direction: column; }
+            .hero-text { text-align: center; }
+            .image-placeholder { max-width: 100%; height: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR HEADER -->
+    <header>
+        <a href="#" class="brand-logo">AUVARA</a>
+        <nav>
+            <a href="#shop">Shop All</a>
+            <a href="#story">Our Story</a>
+            <a href="#ecosystem">Refill Ecosystem</a>
+        </nav>
+    </header>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Documenting Indonesia Through Scent</h1>
+                <p>Sebuah portal sensorik yang membawa memori, sejarah, dan cerita budaya eksklusif Nusantara langkah demi langkah langsung ke atas kulit Anda.</p>
+                <a href="#shop" class="btn-primary">DISCOVER BRAGA, 05:00 PM</a>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <span>[ MOCKUP PROTOTYPE 1 ]</span>
+                    <p>Signature Collection: Kaleng Bulat Aluminum Auvara Braga 05:00 PM di atas meja kayu minimalis dengan pencahayaan senja keemasan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PRODUCT DETAIL SECTION -->
+    <section id="shop" class="product-detail">
+        <h2 class="section-title">The Signature Collection</h2>
+        <div class="product-container">
+            <div class="product-gallery">
+                <div class="image-placeholder" style="background: linear-gradient(135deg, #d2be9f, #bda682); color: var(--forest-green); border-color: var(--forest-green);">
+                    <span>[ MOCKUP PROTOTYPE 2 ]</span>
+                    <p style="color: var(--forest-green); opacity: 0.8;">Tampilan close-up wadah tin box terbuka memperlihatkan solid serum alami bersandingan dengan mini spatula applicator khusus.</p>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>BRAGA, 05:00 PM</h3>
+                <div class="product-meta">Solid Perfume | 15 gram | 100% Alcohol-Free</div>
+                <p>Terinspirasi dari atmosfer senja Jalan Braga, Kota Bandung. Menangkap perpaduan transisi udara dingin, arsitektur art deco keemasan, serta warisan historis kopi Priangan kolonial.</p>
+                
+                <div class="olfactory-notes">
+                    <h4>Olfaktori Transisi Aroma:</h4>
+                    <ul>
+                        <li><strong>Top Notes:</strong> Bergamot & Warm Coffee</li>
+                        <li><strong>Heart Notes:</strong> Amber & Soft Floral</li>
+                        <li><strong>Base Notes:</strong> Vetiver & Humid Wood</li>
+                    </ul>
+                </div>
+                
+                <div class="price">IDR 84.900</div>
+                <a href="#" class="btn-primary" style="background-color: var(--forest-green);">ADD TO CART</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PHYGITAL EXPERIENCE SECTION -->
+    <section id="story" class="phygital">
+        <div class="hero-container">
+            <div class="hero-text" style="color: var(--forest-green);">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Scan the Story,<br>Feel the Memory</h2>
+                <p style="margin-bottom: 2rem;">Setiap unit kemasan Auvara dilengkapi dengan Story Card fisik berproteksi HKI. Pindai QR Code bawaan untuk masuk ke platform multimedia digital interaktif kami—menyajikan visualisasi riset budaya serta video wawancara eksklusif dengan para penyuling minyak atsiri lokal Indonesia.</p>
+                <a href="#" class="btn-primary">EXPLORE DIGITAL EXPERIENCE</a>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder" style="background: linear-gradient(135deg, #264236, #162920);">
+                    <span>[ UI WEBSITE PLATFORM PROTOTYPE ]</span>
+                    <p>Antarmuka ponsel pintar (smartphone UI) menampilkan pemutaran media digital interaktif dokumenter mini sejarah kebudayaan Braga.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SUSTAINABILITY LOOP SECTION -->
+    <section id="ecosystem" class="features">
+        <h2 class="section-title">Designed for Commuters, Built for the Planet</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h4>0% Alcohol Base</h4>
+                <p>Formulasi berbasis beeswax dan shea butter murni yang aman bagi kulit sensitif tanpa risiko iritasi akibat penguapan alkohol kosmetik.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Thermal Stability</h4>
+                <p>Dikalibrasi khusus menghadapi iklim tropis Indonesia dengan titik lebur aman 62-65°C. Dijamin tidak mencair saat disimpan di tas komuter.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Refill Pod Ecosystem</h4>
+                <p>Sistem cangkang pod yang dapat dilepas pasang dengan mudah, memangkas sisa kosmetik terbuang hingga 0% dan menghemat biaya beli ulang hingga 50%.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Auvara Fragrance House - Universitas Padjadjaran. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
